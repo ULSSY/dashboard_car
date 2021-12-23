@@ -8,7 +8,7 @@ import seaborn as sns
 def run_eda_app():
     st.subheader('EDA 화면입니다.')
 
-    df=pd.read_csv('data/Car_Purchasing_Data.csv',encoding='ISO-8859-1')
+    df=pd.read_csv('data/도로교통.csv',encoding='CP949')
 
     radio_menu=['데이터프레임','통계치']
     selected_radio=st.radio('선택하세요',radio_menu)
@@ -69,12 +69,12 @@ def run_eda_app():
     max_data=df[selected_minmax_column]==df[selected_minmax_column].max
     st.dataframe(max_data)
     #고객의 이름을 검색할 수 있는 기능 개발
-    st.subheader('사람검색')
+    st.subheader('발생건수')
     #1. 유저한테 검색어 입력을 받습니다.
     word=st.text_input('검색어를 입력하세요')
     print(word)
     #2.검색어를 데이터프레임의 Customer Name컬럼에서 검색해서 가져온다
     
-    df_search=df.loc[df['Customer Name'].str.lower().str.contains(word),]
+    df_search=df.loc[df['시군구'].str.lower().str.contains(word),]
     #3.화면에 결과를 보여준다
     st.dataframe(df_search)
