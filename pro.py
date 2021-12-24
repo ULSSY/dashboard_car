@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 def main():
-    df=pd.read_csv('data/OBS_계절관측_2.csv')
+    df=pd.read_csv('data/Car_Purchasing_Data.csv')
 
     print(df) 
 
