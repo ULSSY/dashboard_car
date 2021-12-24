@@ -7,19 +7,16 @@ import joblib
 def run_ml_app() :
     st.subheader('Machine Learning 예측')
 
-    df = pd.read_csv('data/Car_Purchasing_Data.csv', encoding='ISO-8859-1')
+    df = pd.read_csv('data/도로교통.csv', encoding='CP949')
 
     # 1. 유저한테, 데이터를 입력받습니다.
-    gender = st.radio('성별을 입력하세요.', ['남자', '여자'])
+    gender = st.radio('지역을 입력하세요.', ['인천', '경기'])
     if gender == '남자' :
         gender_number = 1
     elif gender == '여자' :
         gender_number = 0   
     print(df.columns)
-    age = st.number_input('나이 입력', min_value=df['Age'].min(), max_value=df['Age'].max())
-    salary = st.number_input('연봉 입력', min_value=df['Annual Salary'].min(), max_value=df['Annual Salary'].max())
-    debt = st.number_input('카드 빚 입력', min_value= df['Credit Card Debt'].min(), max_value=df['Credit Card Debt'].max())
-    worth = st.number_input('자산 입력', min_value=df['Net Worth'].min(), max_value=df['Net Worth'].max())
+    
 
     print(gender_number, age, salary, debt, worth)    
 
